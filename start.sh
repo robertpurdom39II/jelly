@@ -1,25 +1,49 @@
 #!/bin/bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
-sleep 2
 
-# in lieu of restarting the shell
-\. "$HOME/.nvm/nvm.sh"
+echo "Checking for NVM..."
+if command -v nvm &> /dev/null
+then
+    echo "NVM is already installed."
+else
+    echo "NVM not found. Installing NVM..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+    sleep 2
+fi
 
+# In lieu of restarting the shell, source nvm.sh to make it available in the current session
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+echo "Installing Node.js version 23..."
 nvm install 23
 sleep 2
 
+echo "Setting Node.js version to current..."
 nvm current
 sleep 2
 
-node -v && npm
+echo "Verifying Node.js and npm versions..."
+node -v && npm -v
 sleep 2
 
-npm install pm2 -g 1>/dev/null 2>&1
-sleep 2
+echo "Checking for PM2..."
+if command -v pm2 &> /dev/null
+then
+    echo "PM2 is already installed."
+else
+    echo "PM2 not found. Installing PM2 globally..."
+    npm install pm2 -g 1>/dev/null 2>&1
+    sleep 2
+fi
+
+echo "Configuring PM2..."
 pm2 set pm2:sysmonit true 1>/dev/null 2>&1
 sleep 2
 pm2 update 1>/dev/null 2>&1
 sleep 2
+
+echo "Installation and configuration complete."
 
 array=()
 for i in {a..z} {A..Z} {0..9}; 
