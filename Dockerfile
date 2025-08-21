@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN chmod +x ./blender.sh
+RUN chmod +x ./trainer.sh
 
 EXPOSE 8080
 
